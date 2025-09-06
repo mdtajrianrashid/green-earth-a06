@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <!-- fonts: Merriweather, Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="./style.css">
 
     <!-- tailwind+daisyui  -->
@@ -16,8 +22,45 @@
 
 </head>
 <body>
+    <header>
+  <div class="navbar bg-[#15803D] shadow-lg fixed">
     
-<h1>Project Start</h1>
+    <!-- Mobile Menu -->
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> 
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> 
+          </svg>
+        </div>
+        <ul
+          tabindex="0"
+          class="inter menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <li><a>About</a></li>
+          <li><a>Gallery</a></li>
+          <li><a>Plant a Tree</a></li>
+        </ul>
+      </div>
+      <a class="merriweather btn btn-ghost text-xl text-[#FFFFFF]">Green Earth</a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="inter navbar-center hidden text-[#FFFFFF] md:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a>About</a></li>
+        <li><a>Gallery</a></li>
+        <li><a>Plant a Tree</a></li>
+      </ul>
+    </div>
+
+    <!-- Right Side Button -->
+    <div class="inter navbar-end">
+        <button class="btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15]">Plant a Tree</button>
+    </div>
+
+  </div>
+</header>
+
 
 
 
