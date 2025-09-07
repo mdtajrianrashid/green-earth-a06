@@ -94,22 +94,15 @@
 
     <!-- Cart Sidebar -->
     <aside class="bg-white rounded-lg shadow p-4 md:col-span-1">
-      <h2 class="font-bold mb-4">Your Cart</h2>
-      <div class="bg-green-50 p-4 rounded-lg flex justify-between items-center">
-        <div class="flex flex-col justify-between rounded">
-          <span id="plantName" class="font-semibold">Mango Tree</span>
-          <span class="text-gray-600"><span id="plantPrice">৳500</span> × <span class="plantQuantity">1</span></span>
-        </div>
-
-        <div>
-          <img id="removeBtn" src="./assets/Vector.png" alt="">
-        </div>
-      </div>
-      <div class="mt-4 flex justify-between font-bold">
-        <span>Total:</span>
-        <span id="totalPrice">৳1000</span>
-      </div>
-    </aside>
+  <h2 class="font-bold mb-4">Your Cart</h2>
+  <div id="cartItems" class="space-y-2">
+    <!-- Dynamic cart items inserted here via JS -->
+  </div>
+  <div class="mt-4 flex justify-between font-bold">
+    <span>Total:</span>
+    <span id="totalPrice">৳0</span>
+  </div>
+</aside>
 
   </div>
 </section>
