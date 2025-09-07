@@ -24,7 +24,6 @@
 <body>
     <header>
   <div class="navbar bg-[#15803D] shadow-lg fixed">
-    
     <!-- Mobile Menu -->
     <div class="navbar-start">
       <div class="dropdown">
@@ -43,7 +42,6 @@
       </div>
       <a class="merriweather btn btn-ghost text-xl text-[#FFFFFF]">Green Earth</a>
     </div>
-
     <!-- Desktop Menu -->
     <div class="inter navbar-center hidden text-[#FFFFFF] md:flex">
       <ul class="menu menu-horizontal px-1">
@@ -52,14 +50,98 @@
         <li><a>Plant a Tree</a></li>
       </ul>
     </div>
-
     <!-- Right Side Button -->
     <div class="inter navbar-end">
-        <button class="btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15]">Plant a Tree</button>
+        <a href="" class="btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15]">Plant a Tree</a>
     </div>
-
+  </div>
+  <!-- Hero -->
+  <div class="bg-[#CFF0DC] flex justify-center items-end md:items-center pt-20 w-full h-full">
+    <div>
+      <img src="./assets/hero-leaf1.png" alt="Leaf">
+    </div>
+    <div class="flex flex-col justify-center items-center text-center gap-4 pb-4">
+      <h1 class="merriweather font-black text-[#1F2937] text-base md:text-4xl">Plant a Tree, Grow a Future</h1>
+      <h3 class="inter text-[#1F2937] text-xs">Join our mission to plant 1 million trees and make the Earth greener for future generations.</h3>
+      <a href="" class="inter btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15] text-nowrap">Get Involved</a>
+    </div>
+    <div>
+      <img src="./assets/hero-leaf2.png" alt="Leaf">
+    </div>
   </div>
 </header>
+
+<section class="bg-green-50 min-h-screen px-8 py-18">
+  <h1 class="merriweather text-center text-2xl font-bold mb-12">Choose Your Trees</h1>
+  <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
+
+    <!-- Sidebar (Categories) -->
+    <aside class="bg-white rounded-lg shadow p-4 md:col-span-1">
+      <h2 class="font-bold mb-4">Categories</h2>
+      <ul class="space-y-2">
+        <li><button class="w-full text-left bg-green-600 text-white px-3 py-2 rounded">All Trees</button></li>
+        <li><button class="w-full text-left px-3 py-2 rounded hover:bg-green-100">Fruit Trees</button></li>
+        <li><button class="w-full text-left px-3 py-2 rounded hover:bg-green-100">Flowering Trees</button></li>
+        <li><button class="w-full text-left px-3 py-2 rounded hover:bg-green-100">Shade Trees</button></li>
+        <li><button class="w-full text-left px-3 py-2 rounded hover:bg-green-100">Medicinal Trees</button></li>
+      </ul>
+    </aside>
+
+    <!-- Product Grid -->
+    <main class="md:col-span-2 lg:col-span-4">
+      
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card -->
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col">
+          <div class="h-32 bg-gray-200 rounded"></div>
+          <h3 class="font-semibold mt-3">Mango Tree</h3>
+          <p class="text-sm text-gray-600">
+            A fast-growing tropical tree that produces delicious, juicy mangoes.
+          </p>
+          <span class="inline-block mt-2 bg-green-100 text-green-700 text-xs px-2 py-1 rounded">Fruit Tree</span>
+          <div class="flex justify-between items-center mt-3">
+            <span class="font-bold">৳500</span>
+            <button class="bg-green-600 text-white px-4 py-2 rounded">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Duplicate cards -->
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col">
+          <div class="h-32 bg-gray-200 rounded"></div>
+          <h3 class="font-semibold mt-3">Guava Tree</h3>
+          <p class="text-sm text-gray-600">Produces delicious guavas, rich in Vitamin C.</p>
+          <span class="inline-block mt-2 bg-green-100 text-green-700 text-xs px-2 py-1 rounded">Fruit Tree</span>
+          <div class="flex justify-between items-center mt-3">
+            <span class="font-bold">৳500</span>
+            <button class="bg-green-600 text-white px-4 py-2 rounded">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <aside class="bg-white rounded-lg shadow p-4 md:col-span-1">
+      <h2 class="font-bold mb-4">Your Cart</h2>
+      <div class="space-y-2">
+        <div class="flex justify-between bg-green-50 p-2 rounded">
+          <span>Mango Tree</span>
+          <span>৳500 × 1</span>
+        </div>
+        <div class="flex justify-between bg-green-50 p-2 rounded">
+          <span>Guava Tree</span>
+          <span>৳500 × 1</span>
+        </div>
+      </div>
+      <div class="mt-4 flex justify-between font-bold">
+        <span>Total:</span>
+        <span>৳1000</span>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
 
 
 
