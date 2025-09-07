@@ -75,67 +75,39 @@
   <h1 class="merriweather text-center text-2xl font-bold mb-12">Choose Your Trees</h1>
   <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
 
-    <!-- Sidebar (Categories) -->
+    <!-- (Categories) -->
     <aside class="bg-white rounded-lg shadow p-4 md:col-span-1">
       <h2 class="font-bold mb-4">Categories</h2>
-      <ul class="space-y-2">
-        <li><button class="w-full text-left bg-green-600 text-white px-3 py-2 rounded">All Trees</button></li>
-        <li><button class="w-full text-left px-3 py-2 rounded hover:bg-green-100">Fruit Trees</button></li>
-        <li><button class="w-full text-left px-3 py-2 rounded hover:bg-green-100">Flowering Trees</button></li>
-        <li><button class="w-full text-left px-3 py-2 rounded hover:bg-green-100">Shade Trees</button></li>
-        <li><button class="w-full text-left px-3 py-2 rounded hover:bg-green-100">Medicinal Trees</button></li>
+      <ul id="categoryContainer" class="space-y-2">
+        
       </ul>
     </aside>
 
-    <!-- Product Grid -->
+    <!-- Grid -->
     <main class="md:col-span-2 lg:col-span-4">
-      
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="plantsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Card -->
-        <div class="bg-white rounded-lg shadow p-4 flex flex-col">
-          <div class="h-32 bg-gray-200 rounded"></div>
-          <h3 class="font-semibold mt-3">Mango Tree</h3>
-          <p class="text-sm text-gray-600">
-            A fast-growing tropical tree that produces delicious, juicy mangoes.
-          </p>
-          <span class="inline-block mt-2 bg-green-100 text-green-700 text-xs px-2 py-1 rounded">Fruit Tree</span>
-          <div class="flex justify-between items-center mt-3">
-            <span class="font-bold">৳500</span>
-            <button class="bg-green-600 text-white px-4 py-2 rounded">Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Duplicate cards -->
-        <div class="bg-white rounded-lg shadow p-4 flex flex-col">
-          <div class="h-32 bg-gray-200 rounded"></div>
-          <h3 class="font-semibold mt-3">Guava Tree</h3>
-          <p class="text-sm text-gray-600">Produces delicious guavas, rich in Vitamin C.</p>
-          <span class="inline-block mt-2 bg-green-100 text-green-700 text-xs px-2 py-1 rounded">Fruit Tree</span>
-          <div class="flex justify-between items-center mt-3">
-            <span class="font-bold">৳500</span>
-            <button class="bg-green-600 text-white px-4 py-2 rounded">Add to Cart</button>
-          </div>
-        </div>
+        <div class="bg-red-500 p-3 ">Loading...</div>
       </div>
     </main>
 
     <!-- Cart Sidebar -->
     <aside class="bg-white rounded-lg shadow p-4 md:col-span-1">
       <h2 class="font-bold mb-4">Your Cart</h2>
-      <div class="space-y-2">
-        <div class="flex justify-between bg-green-50 p-2 rounded">
-          <span>Mango Tree</span>
-          <span>৳500 × 1</span>
+      <div class="bg-green-50 p-4 rounded-lg flex justify-between items-center">
+        <div class="flex flex-col justify-between rounded">
+          <span id="plantName" class="font-semibold">Mango Tree</span>
+          <span class="text-gray-600"><span id="plantPrice">৳500</span> × <span class="plantQuantity">1</span></span>
         </div>
-        <div class="flex justify-between bg-green-50 p-2 rounded">
-          <span>Guava Tree</span>
-          <span>৳500 × 1</span>
+
+        <div>
+          <img id="removeBtn" src="./assets/Vector.png" alt="">
         </div>
       </div>
       <div class="mt-4 flex justify-between font-bold">
         <span>Total:</span>
-        <span>৳1000</span>
+        <span id="totalPrice">৳1000</span>
       </div>
     </aside>
 
@@ -145,7 +117,7 @@
 
 
 
-
+    <!-- Connect JS -->
     <script src="./index.js"></script>
 </body>
 </html>
