@@ -64,45 +64,54 @@ const showCategory = (categories) => {
 
 // Render plant cards
 const showPlantsByCategory = (plants) => {
-  if (plants.length === 0) {
-    plantsContainer.innerHTML = "<p class='text-center text-gray-500'>No plants found in this category.</p>";
-    return;
-  }
-
-  plantsContainer.innerHTML = "";
-
-  plants.forEach((plant) => {
-    const plantCard = document.createElement("div");
-    plantCard.classList.add("bg-white", "rounded-lg", "shadow", "p-4", "flex", "flex-col");
-
-    plantCard.innerHTML = `
-  <img src="${plant.image}" alt="${plant.name}" class="rounded h-40 w-full object-cover">
-  <div class="mt-3 flex flex-col justify-between flex-1">
-    <h1 class="merriweather font-semibold text-lg text-green-700 cursor-pointer hover:underline">${plant.name}</h1>
-    <p class="inter text-sm text-gray-600 mt-1 flex-1">${plant.description}</p>
-    <div class="inter flex justify-between items-center my-3 ">
-      <button class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">${plant.category}</button>
-      <span class="font-bold">৳${plant.price}</span>
+  // Show spinner while loading
+  plantsContainer.innerHTML = `
+    <div id="spinner" class="col-span-full flex justify-center items-center py-10">
+      <div class="w-10 h-10 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
     </div>
-    <!-- add a special class -->
-    <button class="inter add-to-cart bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors">
-      Add to Cart
-    </button>
-  </div>
-`;
+  `;
 
-// Add to Cart button
-const addBtn = plantCard.querySelector(".add-to-cart");
-addBtn.addEventListener("click", () => addToCart(plant));
+  // Small timeout so spinner is visible (optional)
+  setTimeout(() => {
+    if (plants.length === 0) {
+      plantsContainer.innerHTML = "<p class='text-center text-gray-500'>No plants found in this category.</p>";
+      return;
+    }
 
+    plantsContainer.innerHTML = ""; // clear spinner
 
-    // Open modal on name click
-    const nameEl = plantCard.querySelector("h1");
-    nameEl.addEventListener("click", () => openPlantModal(plant));
+    plants.forEach((plant) => {
+      const plantCard = document.createElement("div");
+      plantCard.classList.add("bg-white", "rounded-lg", "shadow", "p-4", "flex", "flex-col");
 
-    plantsContainer.appendChild(plantCard);
-  });
+      plantCard.innerHTML = `
+        <img src="${plant.image}" alt="${plant.name}" class="rounded h-40 w-full object-cover">
+        <div class="mt-3 flex flex-col justify-between flex-1">
+          <h1 class="merriweather font-semibold text-lg text-green-700 cursor-pointer hover:underline">${plant.name}</h1>
+          <p class="inter text-sm text-gray-600 mt-1 flex-1">${plant.description}</p>
+          <div class="inter flex justify-between items-center my-3 ">
+            <button class="btn bg-[#DCFCE7] text-[#15803D] rounded-full pointer-events-none">${plant.category}</button>
+            <span class="font-bold">৳${plant.price}</span>
+          </div>
+          <button class="inter add-to-cart bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors cursor-pointer">
+            Add to Cart
+          </button>
+        </div>
+      `;
+
+      // Add to Cart button
+      const addBtn = plantCard.querySelector(".add-to-cart");
+      addBtn.addEventListener("click", () => addToCart(plant));
+
+      // Open modal on name click
+      const nameEl = plantCard.querySelector("h1");
+      nameEl.addEventListener("click", () => openPlantModal(plant));
+
+      plantsContainer.appendChild(plantCard);
+    });
+  }, 500); // 0.5s delay
 };
+
 
 // Open modal with plant details
 const openPlantModal = (plant) => {
@@ -136,6 +145,8 @@ const addToCart = (plant) => {
   }
 
   updateCartUI();
+
+  alert(`${plant.name} added to cart`);
 };
 
 // Remove plant from cart

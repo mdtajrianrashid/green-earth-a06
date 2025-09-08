@@ -23,7 +23,7 @@
 </head>
 <body>
     <header>
-  <div class="navbar bg-[#15803D] shadow-lg fixed">
+  <div class="navbar bg-[#15803D] shadow-lg fixed px-4 md:px-12 lg:px-24">
     <!-- Mobile Menu -->
     <div class="navbar-start">
       <div class="dropdown">
@@ -40,7 +40,11 @@
           <li><a href="#choose">Plant a Tree</a></li>
         </ul>
       </div>
-      <a class="merriweather btn btn-ghost text-xl text-[#FFFFFF]">Green Earth</a>
+      <a href="javascript:location.reload()" 
+   class="merriweather text-xl font-bold text-white transition duration-300 hover:text-yellow-300 hover:scale-110 hover:drop-shadow-lg text-nowrap">
+  Green Earth
+</a>
+
     </div>
     <!-- Desktop Menu -->
     <div class="inter navbar-center hidden text-[#FFFFFF] md:flex">
@@ -52,7 +56,14 @@
     </div>
     <!-- Right Side Button -->
     <div class="inter navbar-end">
-        <a href="#choose" class="btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15]">Plant a Tree</a>
+        <a href="#choose" 
+   class="btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15] 
+          transition duration-300 ease-in-out transform 
+          hover:scale-110 hover:bg-yellow-400 
+          hover:shadow-sm hover:shadow-green-400/50">
+  Plant a Tree
+</a>
+
     </div>
   </div>
   <!-- Hero -->
@@ -63,7 +74,13 @@
     <div class="flex flex-col justify-center items-center text-center gap-4 pb-4">
       <h1 class="merriweather font-black text-[#1F2937] text-base md:text-4xl">Plant a Tree, Grow a Future</h1>
       <h3 class="inter text-[#1F2937] text-xs">Join our mission to plant 1 million trees and make the Earth greener for future generations.</h3>
-      <a href="" class="inter btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15] text-nowrap">Get Involved</a>
+      <a href="#involved" 
+   class="inter btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15] text-nowrap 
+          transition duration-300 ease-in-out transform hover:scale-110 hover:bg-yellow-400 
+          hover:shadow-lg hover:shadow-yellow-300/50">
+  Get Involved
+</a>
+
     </div>
     <div>
       <img src="./assets/hero-leaf2.png" alt="Leaf">
@@ -87,9 +104,12 @@
     <main class="md:col-span-2 lg:col-span-4">
 
       <div id="plantsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[56rem] overflow-y-auto pr-2">
-        <!-- Card -->
-        <div class="bg-red-500 p-3 ">Loading...</div>
-      </div>
+  <!-- Spinner Placeholder -->
+  <div id="spinner" class="col-span-full flex justify-center items-center py-10">
+    <div class="w-10 h-10 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+</div>
+
     </main>
 
     <!-- Cart Sidebar -->
@@ -132,7 +152,7 @@
 <section class="bg-green-50 pt-0 pb-18">
   <div class="flex flex-col justify-center items-center max-w-6xl mx-auto px-6">
     <div>
-    <h1 id="about" class="merriweather text-center text-3xl font-bold py-12 scroll-mt-26">About the Campaign</h1>
+    <h1 id="about" class="merriweather text-center text-3xl font-bold py-12 scroll-mt-16">About the Campaign</h1>
   </div>
   <div class="flex flex-col md:flex-row justify-center items-center gap-6">
     <div class="flex-shrink-0">
@@ -158,51 +178,36 @@
     <div class="inter grid grid-cols-1 sm:grid-cols-3 gap-6">
       
       <!-- Card 1 -->
-      <div class="bg-white rounded-lg shadow-sm p-8">
-        <h3 class="text-2xl font-bold text-green-700">500K+</h3>
-        <p class="mt-2 text-gray-600">Trees Planted</p>
-      </div>
+      <div class="bg-white rounded-lg shadow-sm p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl hover:bg-green-50">
+  <h3 class="text-2xl font-bold text-green-700">500K+</h3>
+  <p class="mt-2 text-gray-600">Trees Planted</p>
+</div>
+
 
       <!-- Card 2 -->
-      <div class="bg-white rounded-lg shadow-sm p-8">
-        <h3 class="text-2xl font-bold text-green-700">120+</h3>
-        <p class="mt-2 text-gray-600">Communities Involved</p>
-      </div>
+      <div class="bg-white rounded-lg shadow-sm p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl hover:bg-green-50">
+  <h3 class="text-2xl font-bold text-green-700">120+</h3>
+  <p class="mt-2 text-gray-600">Communities Involved</p>
+</div>
+
 
       <!-- Card 3 -->
-      <div class="bg-white rounded-lg shadow-sm p-8">
-        <h3 class="text-2xl font-bold text-green-700">30+</h3>
-        <p class="mt-2 text-gray-600">Countries Reached</p>
-      </div>
-
+      <div class="bg-white rounded-lg shadow-sm p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl hover:bg-green-50">
+  <h3 class="text-2xl font-bold text-green-700">30+</h3>
+  <p class="mt-2 text-gray-600">Countries Reached</p>
+</div>
     </div>
   </div>
 </section>
 
-<!-- Donation Form Section -->
+<!-- Plant a Tree Today Section -->
 <section class="bg-[#166534] py-16 flex flex-col items-center">
-  <h2 class="merriweather text-3xl font-bold text-white pb-8 scroll-mt-26">Plant a Tree Today</h2>
-     
+  <h2 id="involved" class="merriweather text-3xl font-bold text-white pb-8 scroll-mt-26">Plant a Tree Today</h2>
   <div class="bg-green-700 p-8 rounded-lg shadow-lg w-full max-w-lg">
     <form class="inter space-y-4">
-      <!-- Name -->
-      <input 
-        type="text" 
-        placeholder="Your Name" 
-        class="w-full px-4 py-2 rounded-md border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-      >
-
-      <!-- Email -->
-      <input 
-        type="email" 
-        placeholder="Your Email Address" 
-        class="w-full px-4 py-2 rounded-md border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-      >
-
-      <!-- Number of Trees -->
-      <select 
-        class="w-full px-4 py-2 rounded-md border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-      >
+       <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded-md border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+       <input type="email" placeholder="Your Email Address" class="w-full px-4 py-2 rounded-md border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+       <select class="w-full px-4 py-2 rounded-md border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
         <option>Number of Trees</option>
         <option>1</option>
         <option>5</option>
@@ -210,14 +215,7 @@
         <option>20</option>
         <option>50</option>
       </select>
-
-      <!-- Button -->
-      <button 
-        type="submit" 
-        class="w-full bg-[#FACC15] hover:bg-yellow-500 text-green-800 font-semibold py-2 rounded-full transition duration-200"
-      >
-        Donate Now
-      </button>
+      <button type="submit" class="w-full bg-[#FACC15] text-green-800 font-semibold py-2 rounded-full transition duration-300 ease-in-out transform hover:scale-105 hover:bg-yellow-400 hover:shadow-md hover:shadow-green-500/40 hover:-translate-y-1">Donate Now</button>
     </form>
   </div>
 </section>
@@ -226,10 +224,6 @@
 <footer class="inter bg-[#14532D] text-center text-white py-4 text-sm">
   © 2025 Green Earth. All Rights Reserved.
 </footer>
-
-
-
-
 
     <!-- Connect JS -->
     <script src="./index.js"></script>
