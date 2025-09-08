@@ -76,24 +76,54 @@ const showPlantsByCategory = (plants) => {
     plantCard.classList.add("bg-white", "rounded-lg", "shadow", "p-4", "flex", "flex-col");
 
     plantCard.innerHTML = `
-      <img src="${plant.image}" alt="${plant.name}" class="rounded h-40 w-full object-cover">
-      <div class="mt-3 flex flex-col justify-between flex-1">
-        <h1 class="font-semibold text-lg">${plant.name}</h1>
-        <p class="text-sm text-gray-600 mt-1 flex-1">${plant.description}</p>
-        <div class="flex justify-between items-center mt-3">
-          <span class="font-bold">৳${plant.price}</span>
-          <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors">Add to Cart</button>
-        </div>
-      </div>
-    `;
+  <img src="${plant.image}" alt="${plant.name}" class="rounded h-40 w-full object-cover">
+  <div class="mt-3 flex flex-col justify-between flex-1">
+    <h1 class="merriweather font-semibold text-lg text-green-700 cursor-pointer hover:underline">${plant.name}</h1>
+    <p class="inter text-sm text-gray-600 mt-1 flex-1">${plant.description}</p>
+    <div class="inter flex justify-between items-center my-3 ">
+      <button class="btn bg-[#DCFCE7] text-[#15803D] rounded-full">${plant.category}</button>
+      <span class="font-bold">৳${plant.price}</span>
+    </div>
+    <!-- add a special class -->
+    <button class="inter add-to-cart bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors">
+      Add to Cart
+    </button>
+  </div>
+`;
 
-    // Add to Cart button
-    const addBtn = plantCard.querySelector("button");
-    addBtn.addEventListener("click", () => addToCart(plant));
+// Add to Cart button
+const addBtn = plantCard.querySelector(".add-to-cart");
+addBtn.addEventListener("click", () => addToCart(plant));
+
+
+    // Open modal on name click
+    const nameEl = plantCard.querySelector("h1");
+    nameEl.addEventListener("click", () => openPlantModal(plant));
 
     plantsContainer.appendChild(plantCard);
   });
 };
+
+// Open modal with plant details
+const openPlantModal = (plant) => {
+  const modal = document.getElementById("plantModal");
+
+
+  document.getElementById("modalName").innerText = plant.name;
+  document.getElementById("modalImage").src = plant.image;
+  document.getElementById("modalcategory").innerText = plant.category;
+  document.getElementById("modalPrice").innerText = `৳${plant.price}`;
+  document.getElementById("modalDescription").innerText = plant.description;
+  
+
+  // "Add to Cart" inside modal
+  const modalAddBtn = document.getElementById("modalAddBtn");
+  modalAddBtn.onclick = () => addToCart(plant);
+
+  modal.showModal(); // open <dialog>
+};
+
+
 
 // Add plant to cart
 const addToCart = (plant) => {
@@ -154,4 +184,3 @@ const updateCartUI = () => {
 
 // Initialize page
 loadCategory();
-

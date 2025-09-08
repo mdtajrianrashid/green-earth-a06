@@ -37,7 +37,7 @@
           class="inter menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
           <li><a>About</a></li>
           <li><a>Gallery</a></li>
-          <li><a>Plant a Tree</a></li>
+          <li><a href="#choose">Plant a Tree</a></li>
         </ul>
       </div>
       <a class="merriweather btn btn-ghost text-xl text-[#FFFFFF]">Green Earth</a>
@@ -47,12 +47,12 @@
       <ul class="menu menu-horizontal px-1">
         <li><a>About</a></li>
         <li><a>Gallery</a></li>
-        <li><a>Plant a Tree</a></li>
+        <li><a href="#choose">Plant a Tree</a></li>
       </ul>
     </div>
     <!-- Right Side Button -->
     <div class="inter navbar-end">
-        <a href="" class="btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15]">Plant a Tree</a>
+        <a href="#choose" class="btn btn-warning text-[#15803D] rounded-3xl px-6 bg-[#FACC15]">Plant a Tree</a>
     </div>
   </div>
   <!-- Hero -->
@@ -71,14 +71,14 @@
   </div>
 </header>
 
-<section class="bg-green-50 min-h-screen px-8 py-18">
-  <h1 class="merriweather text-center text-2xl font-bold mb-12">Choose Your Trees</h1>
+<section class="bg-green-50 min-h-screen px-8 pt-18">
+  <h1 id="choose" class="merriweather text-center text-3xl font-bold mb-12 scroll-mt-26">Choose Your Trees</h1>
   <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
 
     <!-- (Categories) -->
-    <aside class="bg-white rounded-lg shadow p-4 md:col-span-1">
+    <aside class="bg-green-50 rounded-lg shadow-lg p-4 md:col-span-1">
       <h2 class="font-bold mb-4">Categories</h2>
-      <ul id="categoryContainer" class="space-y-2">
+      <ul id="categoryContainer" class="space-y-2 max-h-60 overflow-y-auto md:max-h-full md:overflow-y-visible">
         
       </ul>
     </aside>
@@ -86,7 +86,7 @@
     <!-- Grid -->
     <main class="md:col-span-2 lg:col-span-4">
 
-      <div id="plantsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="plantsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[56rem] overflow-y-auto pr-2">
         <!-- Card -->
         <div class="bg-red-500 p-3 ">Loading...</div>
       </div>
@@ -107,6 +107,49 @@
   </div>
 </section>
 
+
+<!-- Plant Details Modal -->
+<dialog id="plantModal" class="modal">
+  <div class="modal-box max-w-2xl">
+    <h3 id="modalName" class="merriweather font-bold text-lg"></h3>
+    <img id="modalImage" src="" alt="" class="w-full h-60 object-cover rounded mt-3">
+    <button id="modalcategory" class="inter btn bg-[#DCFCE7] text-[#15803D] rounded-full mt-3"></button>
+    <p id="modalDescription" class="inter py-4 text-gray-600"></p>
+    <div class="inter flex justify-between items-center font-semibold mt-4">
+      <span><span class="font-bold">Price:</span> <span id="modalPrice"></span></span>
+      <button id="modalAddBtn" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+        Add to Cart
+      </button>
+    </div>
+    <div class="inter modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<section class="bg-green-50 pt-0 pb-18">
+  <div class="flex flex-col justify-center items-center max-w-6xl mx-auto px-6">
+    <div>
+    <h1 id="about" class="merriweather text-center text-3xl font-bold py-12 scroll-mt-26">About the Campaign</h1>
+  </div>
+  <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+  <div class="flex-shrink-0">
+    <img src="./assets/about.png" alt="Plant" class="w-64 md:w-80 lg:w-96">
+  </div>
+  <div class="inter max-w-md md:max-w-lg">
+    <p class="text-[#1F2937]">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+    <ul class="list-disc list-inside mt-4 space-y-1 text-[#1F2937] ml-2">
+      <li>Restoration of natural habitats</li>
+      <li>Improvement of air quality</li>
+      <li>Support for local communities</li>
+    </ul>
+  </div>
+</div>
+
+  </div>
+</section>
 
 
 
