@@ -22,25 +22,16 @@ const fetchAllPlants = async () => {
 // Load categories and initial plants
 const loadCategory = async () => {
   const plants = await fetchAllPlants();
-
-  // Unique categories
   const categories = [...new Set(plants.map(p => p.category))];
   showCategory(categories);
-
-  // Show all plants initially
   showPlantsByCategory(plants);
 };
 
 // Render categories in sidebar
 const showCategory = (categories) => {
   categoryContainer.innerHTML = "";
-
   categories.forEach((cat, index) => {
-    categoryContainer.innerHTML += `
-      <li id="cat-${index}" class="category-item w-full text-left px-3 py-2 rounded cursor-pointer hover:bg-green-100">
-        ${cat}
-      </li>
-    `;
+    categoryContainer.innerHTML += `<li id="cat-${index}" class="category-item w-full text-left px-3 py-2 rounded cursor-pointer hover:bg-green-100">${cat}</li>`;
   });
 
   // Category click handler
@@ -51,10 +42,9 @@ const showCategory = (categories) => {
         li.classList.remove("bg-green-600", "text-white");
         li.classList.add("hover:bg-green-100");
       });
-
       e.target.classList.add("bg-green-600", "text-white");
       e.target.classList.remove("hover:bg-green-100");
-
+      
       const plants = await fetchAllPlants();
       const filteredPlants = plants.filter(p => p.category === e.target.innerText);
       showPlantsByCategory(filteredPlants);
@@ -64,21 +54,18 @@ const showCategory = (categories) => {
 
 // Render plant cards
 const showPlantsByCategory = (plants) => {
-  // Show spinner while loading
+  //  Spinner
   plantsContainer.innerHTML = `
-    <div id="spinner" class="col-span-full flex justify-center items-center py-10">
-      <div class="w-10 h-10 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
-    </div>
-  `;
-
-  // Small timeout so spinner is visible (optional)
+  <div id="spinner" class="col-span-full flex justify-center items-center py-10">
+  <div class="w-10 h-10 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+  </div>`;
   setTimeout(() => {
     if (plants.length === 0) {
       plantsContainer.innerHTML = "<p class='text-center text-gray-500'>No plants found in this category.</p>";
       return;
     }
 
-    plantsContainer.innerHTML = ""; // clear spinner
+    plantsContainer.innerHTML = "";
 
     plants.forEach((plant) => {
       const plantCard = document.createElement("div");
@@ -109,43 +96,33 @@ const showPlantsByCategory = (plants) => {
 
       plantsContainer.appendChild(plantCard);
     });
-  }, 500); // 0.5s delay
+  }, 500);
 };
-
 
 // Open modal with plant details
 const openPlantModal = (plant) => {
   const modal = document.getElementById("plantModal");
-
-
   document.getElementById("modalName").innerText = plant.name;
   document.getElementById("modalImage").src = plant.image;
   document.getElementById("modalcategory").innerText = plant.category;
   document.getElementById("modalPrice").innerText = `৳${plant.price}`;
   document.getElementById("modalDescription").innerText = plant.description;
   
-
   // "Add to Cart" inside modal
   const modalAddBtn = document.getElementById("modalAddBtn");
   modalAddBtn.onclick = () => addToCart(plant);
-
-  modal.showModal(); // open <dialog>
+  modal.showModal();
 };
-
-
 
 // Add plant to cart
 const addToCart = (plant) => {
   const existingItem = cart.find(item => item.id === plant.id);
-
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
     cart.push({ ...plant, quantity: 1 });
   }
-
   updateCartUI();
-
   alert(`${plant.name} added to cart`);
 };
 
